@@ -1,0 +1,18 @@
+{
+    "name": "yma-ipc",
+    "version": "1.0.0",
+    "description": "基于 window.postMessage 完成的 IPC 通信",
+    "main": "./src/index.js",
+    "scripts": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/GitHubJian/yma-ipc.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/GitHubJian/yma-ipc/issues"
+    },
+    "homepage": "https://github.com/GitHubJian/yma-ipc#readme"
+}

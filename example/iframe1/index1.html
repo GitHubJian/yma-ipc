@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    </head>
+
+    <body>
+        <iframe src="./index3/index1.html"></iframe>
+        <script src="../../src/index.js"></script>
+        <script>
+            const ipc = new window.IPC({
+                id: 'iframe1',
+                win: window,
+            });
+
+            ipc.on('leader', function (params) {
+                console.log(params);
+            });
+
+            ipc.on('render', function (params) {
+                console.log(params);
+            });
+
+            ipc.report('report', {
+                message: '我是 iframe1，我要汇报',
+            });
+
+            setTimeout(function () {
+                ipc.sendTo('iframe2', 'render', {
+                    message: '哈哈哈',
+                });
+            }, 2000);
+        </script>
+    </body>
+</html>

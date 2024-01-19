@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    </head>
+
+    <body>
+        <iframe src="./iframe1/index1.html"></iframe>
+        <iframe src="./iframe1/index2.html"></iframe>
+        <iframe src="./iframe1/index3.html"></iframe>
+        <!-- <iframe src="./iframe1/index3/index1.html"></iframe> -->
+        <script src="../src/index.js"></script>
+        <script>
+            const ipc = new window.IPC({
+                id: 'index',
+                win: window,
+            });
+
+            ipc.on('report', function (params) {
+                console.log(params.message);
+            });
+
+            setTimeout(function () {
+                ipc.notify('leader', {
+                    message: '我是领导',
+                });
+            }, 1000);
+        </script>
+    </body>
+</html>
